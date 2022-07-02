@@ -61,10 +61,24 @@
 	                                <input class="input" type="text" name="text" placeholder="Votre phrase&hellip;">
 	                            </div>
 	                            <div class="control">
-                                    <a href="#"><button id="button" class="button button-primary button-block" value="Upload" onclick="location.href='https://n6iuodisya.execute-api.eu-west-3.amazonaws.com/return_generated_image'">GÉNÉRER</a>
+                                    <a href="#"><button id="button" class="button button-primary button-block" value="Upload" type="button"
+										onclick="addimage()">GÉNÉRER</a>
 	                            </div>
 	                        </div>
 							<br>
+
+							<div id="img_home"></div>
+
+							<script>
+							function addimage() {
+								var img = new Image();
+								img.src = "http://13.38.41.175:8000/static/test"
+								img_home.appendChild(img);
+							}
+							</script>
+
+
+
 							<div class="hero-form field field-grouped is-revealing">
 	                          
 								<br>
