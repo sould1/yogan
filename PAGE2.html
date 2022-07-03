@@ -71,6 +71,8 @@
 
 							<script>
 							function addimage() {
+								var address = 'http://13.38.41.175:8000'	
+
 								img_home.innerHTML = ''
 								var img = new Image();
 								img.src = `https://media.giphy.com/media/RgzryV9nRCMHPVVXPV/giphy.gif`
@@ -80,7 +82,7 @@
 								var promptText = document.getElementById('prompt').value;
 
 								var headers = new Headers();
-								var request = new Request(`http://13.38.41.175:8000/generate_simple?prompt=${promptText}&id=${id}`);
+								var request = new Request(`${address}/generate_simple?prompt=${promptText}&id=${id}`);
 
 								fetch(request, { method: 'GET', mode: 'cors', cache: 'default' }).then(function(response) {
 									console.log({response});
@@ -88,7 +90,7 @@
 								}).then(function(response) {
 									img_home.innerHTML = ''
 									var img = new Image();
-									img.src = `http://13.38.41.175:8000/static/${id}`
+									img.src = `${address}/static/${id}`
 									img_home.appendChild(img);
 								}).catch(function(err) {
 									console.log({err});
