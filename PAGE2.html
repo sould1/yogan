@@ -58,7 +58,7 @@
 	                        <p class="hero-paragraph is-revealing">Notre outils vous permets de créer des visuels uniques et personnalisés adapté à vos campagnes publicitaires.</p>
 							<div class="hero-form field field-grouped is-revealing">
 	                            <div class="control control-expanded">
-	                                <input class="input" type="text" name="text" placeholder="Votre phrase&hellip;">
+	                                <input id="prompt" class="input" type="text" name="text" placeholder="Votre phrase&hellip;">
 	                            </div>
 	                            <div class="control">
                                     <a href="#"><button id="button" class="button button-primary button-block" value="Upload" type="button"
@@ -71,9 +71,28 @@
 
 							<script>
 							function addimage() {
+								img_home.innerHTML = ''
 								var img = new Image();
-								img.src = "http://13.38.41.175:8000/static/test"
+								img.src = `https://media.giphy.com/media/RgzryV9nRCMHPVVXPV/giphy.gif`
 								img_home.appendChild(img);
+								
+								var id = 'yogan';
+								var promptText = document.getElementById('prompt').value;
+
+								var headers = new Headers();
+								var request = new Request(`http://13.38.41.175:8000/generate_simple?prompt=${promptText}&id=${id}`);
+
+								fetch(request, { method: 'GET', mode: 'cors', cache: 'default' }).then(function(response) {
+									console.log({response});
+									return response;
+								}).then(function(response) {
+									img_home.innerHTML = ''
+									var img = new Image();
+									img.src = `http://13.38.41.175:8000/static/${id}`
+									img_home.appendChild(img);
+								}).catch(function(err) {
+									console.log({err});
+								});
 							}
 							</script>
 
