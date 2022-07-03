@@ -84,7 +84,7 @@
 								var headers = new Headers();
 								var request = new Request(`${address}/generate_simple?prompt=${promptText}&id=${id}`);
 
-								fetch(request, { method: 'GET', headers, mode: 'cors', cache: 'default' }).then(function(response) {
+								fetch(request, { method: 'GET', headers, mode: 'no-cors', cache: 'default' }).then(function(response) {
 									console.log({response});
 									return response;
 								}).then(function(response) {
