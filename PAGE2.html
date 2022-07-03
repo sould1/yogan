@@ -81,10 +81,10 @@
 								var id = 'yogan';
 								var promptText = document.getElementById('prompt').value;
 
-								var headers = new Headers();
+								var headers = new Headers({"Content-Security-Policy": "upgrade-insecure-requests"});
 								var request = new Request(`${address}/generate_simple?prompt=${promptText}&id=${id}`);
 
-								fetch(request, { method: 'GET', mode: 'cors', cache: 'default' }).then(function(response) {
+								fetch(request, { method: 'GET', headers, mode: 'cors', cache: 'default' }).then(function(response) {
 									console.log({response});
 									return response;
 								}).then(function(response) {
