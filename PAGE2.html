@@ -93,6 +93,10 @@
 									img.src = `${address}/static/${id}`
 									img_home.appendChild(img);
 								}).catch(function(err) {
+									img_home.innerHTML = ''
+									var img = new Image();
+									img.src = `https://media.giphy.com/media/TqiwHbFBaZ4ti/giphy.gif`
+									img_home.appendChild(img);
 									console.log({err});
 								});
 							}
