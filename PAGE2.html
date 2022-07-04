@@ -70,16 +70,14 @@
 							<div id="img_home"></div>
 
 							<script>
-							function makeid(length) {
+							function addimage() {
 								var result           = '';
 								var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 								var charactersLength = characters.length;
 								for ( var i = 0; i < length; i++ ) {
 									result += characters.charAt(Math.floor(Math.random() * charactersLength));
 								}
-								return result;
-							}
-							function addimage() {
+
 								var address = 'http://15.237.113.192:5000'
 
 								img_home.innerHTML = ''
@@ -87,7 +85,7 @@
 								img.src = `https://media.giphy.com/media/RgzryV9nRCMHPVVXPV/giphy.gif`
 								img_home.appendChild(img);
 								
-								var id = 'yogan'.makeid(10);
+								var id = `yogan${result}`;
 								var promptText = document.getElementById('prompt').value;
 
 								var headers = new Headers();
